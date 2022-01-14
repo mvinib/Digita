@@ -1,0 +1,98 @@
+.content{
+    width: auto;
+    height: 100vh;
+    flex-direction: row;
+    align-items:center;
+    justify-content: center;
+    transition: all 0.5s;
+    background-color: var(--bg);
+    h1{
+        font-size:4rem;
+        color: var(--color-text);
+        padding-left: 50px;
+    } 
+    .item-left, 
+    .item-rigth{
+        position: absolute;
+        font-size:3rem;
+        width: 60px;
+        height: 340px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 99;
+        cursor: pointer;
+        overflow: hidden;
+        opacity: 1;
+        
+        .icon{
+            font-size:5rem;
+            width: 70px;
+            height: 70px;
+        }
+
+    }
+    .item-left{
+        left: 0;
+        margin-left: 10px;
+        
+    }
+    .item-rigth{
+        right: 0;
+        margin-right: 10px;
+    }
+       
+    .boxes{
+        display: flex;
+        width: 1800px;
+        transition: all 0.5s;
+        overflow-x:none;
+        margin-bottom: 30px;
+        margin-top: 10vh;
+        .box{
+            background-color:var(--bg);
+            min-width: 300px;
+            height: 250px;
+            border-radius: 30px;
+            border: 2px solid var(--color-text);
+            margin:0px 10px;
+            color: var(--color-text);
+            font-size:4rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            .front, .back{
+                width: 240px;
+                height: 240px;
+                border-radius: 30px;
+                background-color: var(--bg);
+                color: var(--color-text);
+                backface-visibility: hidden;
+                position:absolute;
+                transition: transform 0.6s linear;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                p{
+                    font-size: 2rem;
+                }
+            }
+            .front{
+                transform: perspective(600px) rotateY(0deg);
+            }
+            .back{
+                transform: perspective(600px) rotateY(180deg);
+            }
+            &:hover > .front{
+                transform: perspective(600px) rotateY(180deg);
+            }
+            &:hover > .back{
+                transform: perspective(600px) rotateY(0deg);
+
+            }
+        }
+    }
+}
