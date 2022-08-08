@@ -8,18 +8,19 @@ function App() {
   useEffect(() => { /* assim que a aplicação iniciar, será iniciado um listener para verificar se o toogle é mudado e adicionar uma classe para mudar o tema da aplicação */
     const app = document.querySelector('.app')
     const toggle = document.querySelector('.toggle')
-    function dark() { /* tanto a função dark como a light servem para adicionar uma classe e remover a outra */
-      app.classList.add('dark')
-      app.classList.remove('ligth')
-    }
-    function light() {
-      app.classList.add('ligth')
-      app.classList.remove('dark')
+    function handleToogle(checked) {
+      if(checked) {
+        app.classList.add('dark')
+        app.classList.remove('ligth')
+      }else{
+        app.classList.add('ligth')
+        app.classList.remove('dark')
+      }
     }
     toggle.addEventListener('change', (e) => {
-      e.target.checked ? dark() : light()
+      handleToogle(e.target.checked)
 
-    }, false)
+    })
   }, [])
 
   return (
